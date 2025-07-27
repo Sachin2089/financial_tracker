@@ -8,14 +8,11 @@ from app.services.category_classifier import classifier
 app = FastAPI(title="Finance Tracker API", version="1.0.0")
 
 # 🎩 CORS settings - tweak origins as needed
-origins = [
-    "http://localhost:5173",  # frontend dev
-    "https://your-frontend-domain.com"  # prod URL
-]
+origins =["*"]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # 👈 or ["*"] to allow all (for testing only!)
+    allow_origins=origins, 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
